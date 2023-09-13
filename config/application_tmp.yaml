@@ -1,0 +1,14 @@
+server:
+  port: 8081
+  debug: true
+mysql:
+  host: xxx.xxx.cn
+  port: 3306
+  user: xxxxxx
+  password: xxxxxxx
+  database: xxxxxxx
+redis:
+  host: localhost
+  port: 6379
+  password: 
+  db: 0
