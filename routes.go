@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 
+	"contract_system_server/common"
 	"contract_system_server/controller"
 	"contract_system_server/middleware"
 )
@@ -29,6 +30,8 @@ func CollectRoute(r *gin.Engine) *gin.Engine {
 	// postRoutes.DELETE("/:id", postController.Delete)
 	// postRoutes.POST("/page/list", postController.PageList)
 
+	r.Use(middleware.LogMiddleware())
+
 	r.GET("/hello", controller.HelloWorld)
 	r.GET("/hello-middleware", middleware.TestMiddleware(), controller.HelloWorld)
 
@@ -41,6 +44,8 @@ func CollectRoute(r *gin.Engine) *gin.Engine {
 	redisRoutes.POST("/set", controller.SetKey)
 	redisRoutes.POST("/get", controller.GetKey)
 	redisRoutes.POST("/del", controller.DelKey)
+
+	common.AddInfo("router init successfully!")
 
 	return r
 }

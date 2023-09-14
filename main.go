@@ -10,6 +10,8 @@ import (
 func main() {
 	// 初始化配置
 	common.InitConfig()
+	// 初始化日志
+	common.InitLog()
 	// 初始化数据库
 	db := common.InitDB()
 	defer db.Close()
@@ -30,6 +32,9 @@ func main() {
 	r = CollectRoute(r)
 	// 运行
 	port := viper.GetString("server.port")
+
+	common.AddInfo("server running on port:" + port)
+
 	if port != "" {
 		panic(r.Run(":" + port))
 	}

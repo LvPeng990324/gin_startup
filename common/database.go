@@ -18,6 +18,8 @@ func InitDB() *sqlx.DB {
 	db.SetMaxIdleConns(5)  // 最大空闲连接数
 	db.SetMaxOpenConns(10) // 最大连接数
 
+	AddInfo("db init successfully!")
+
 	DB = db
 	return db
 }

@@ -22,6 +22,8 @@ func InitRedis() *redis.Client {
 		DB:       db,
 	})
 
+	AddInfo("redis init successfully!")
+
 	return RedisClient
 }
 

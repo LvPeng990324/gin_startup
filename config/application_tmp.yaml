@@ -1,6 +1,8 @@
 server:
   port: 8081
   debug: true
+  log_files: ./log/gin  # 这是日志的软链接文件所在的位置，日志分文件都会在这个同级目录里
+  log_clear_days: 60    # 日志文件保存多少天后被滚动清理
 mysql:
   host: xxx.xxx.cn
   port: 3306
